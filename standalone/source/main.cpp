@@ -1,4 +1,4 @@
-#include <injective/network.h>
+#include <injective/greeter.h>
 #include <injectivesdk/version.h>
 
 #include <cxxopts.hpp>
@@ -46,7 +46,7 @@ auto main(int argc, char** argv) -> int {
     return 1;
   }
 
-  injective::Network injective(name);
+  injective::Greeter injective(name);
   std::cout << injective.greet(langIt->second) << std::endl;
 
   return 0;

@@ -4,28 +4,21 @@
 
 namespace injective {
 
-  /**  Language codes to be used with the Network class */
-  enum class LanguageCode { EN, DE, ES, FR };
-
-  /**
-   * @brief A class for saying hello in multiple languages
-   */
   class Network {
-    std::string name;
+    public:
+      std::string LcdEndpoint;
+      std::string TmEndpoint;
+      std::string ChainGrpcEndpoint;
+      // ChainTlsCert         credentials.TransportCredentials
+      std::string ExchangeGrpcEndpoint;
+      // ExchangeTlsCert      credentials.TransportCredentials
+      std::string ChainId;
+      std::string Fee_denom;
+      std::string Name;
 
-  public:
-    /**
-     * @brief Creates a new injective
-     * @param name the name to greet
-     */
-    Network(std::string name);
-
-    /**
-     * @brief Creates a localized string containing the greeting
-     * @param lang the language to greet in
-     * @return a string containing the greeting
-     */
-    std::string greet(LanguageCode lang = LanguageCode::EN) const;
+    public:
+      static Network LoadNetwork(std::string name, std::string node);
   };
+
 
 }  // namespace injective

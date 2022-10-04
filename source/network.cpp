@@ -3,18 +3,18 @@
 
 using namespace injective;
 
-Network::Network(std::string _name) : name(std::move(_name)) {}
-
-std::string Network::greet(LanguageCode lang) const {
-  switch (lang) {
-    default:
-    case LanguageCode::EN:
-      return fmt::format("Hello, {}!", name);
-    case LanguageCode::DE:
-      return fmt::format("Hallo {}!", name);
-    case LanguageCode::ES:
-      return fmt::format("¡Hola {}!", name);
-    case LanguageCode::FR:
-      return fmt::format("Bonjour {}!", name);
+Network Network::LoadNetwork(std::string name, std::string)
+{
+  if (name == "testnet"){
+    return Network{
+      "https://k8s.testnet.lcd.injective.network",
+      "wss://k8s.testnet.tm.injective.network/websocket",
+      "k8s.testnet.chain.grpc.injective.network:443",
+      "k8s.testnet.exchange.grpc.injective.network:443",
+      "injective-888",
+      "int",
+      "testnet"
+    }; 
   }
+  return Network{};
 }

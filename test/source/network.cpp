@@ -1,13 +1,13 @@
 #include <doctest/doctest.h>
-#include <injective/network.h>
+#include <injective/greeter.h>
 #include <injectivesdk/version.h>
 
 #include <string>
 
-TEST_CASE("Network") {
+TEST_CASE("Greeter") {
   using namespace injective;
 
-  Network injective("Tests");
+  Greeter injective("Tests");
 
   CHECK(injective.greet(LanguageCode::EN) == "Hello, Tests!");
   CHECK(injective.greet(LanguageCode::DE) == "Hallo Tests!");
@@ -15,7 +15,7 @@ TEST_CASE("Network") {
   CHECK(injective.greet(LanguageCode::FR) == "Bonjour Tests!");
 }
 
-TEST_CASE("Network version") {
+TEST_CASE("Greeter version") {
   static_assert(std::string_view(INJECTIVESDK_VERSION) == std::string_view("1.0"));
   CHECK(std::string(INJECTIVESDK_VERSION) == std::string("1.0"));
 }
