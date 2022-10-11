@@ -12,10 +12,14 @@ enable_testing()
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../standalone ${CMAKE_BINARY_DIR}/standalone)
 
-add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../examples/chain/0_LocalOrderHash
-    ${CMAKE_BINARY_DIR}/examples/chain/0_LocalOrderHash)
-add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../examples/chain/1_MsgSend
-    ${CMAKE_BINARY_DIR}/examples/chain/1_MsgSend)
+add_subdirectory(
+  ${CMAKE_CURRENT_LIST_DIR}/../examples/chain/0_LocalOrderHash
+  ${CMAKE_BINARY_DIR}/examples/chain/0_LocalOrderHash
+)
+add_subdirectory(
+  ${CMAKE_CURRENT_LIST_DIR}/../examples/chain/1_MsgSend
+  ${CMAKE_BINARY_DIR}/examples/chain/1_MsgSend
+)
 
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../test ${CMAKE_BINARY_DIR}/test)
 add_subdirectory(${CMAKE_CURRENT_LIST_DIR}/../documentation ${CMAKE_BINARY_DIR}/documentation)
