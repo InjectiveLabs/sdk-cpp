@@ -6,7 +6,7 @@
 using namespace injective;
 
 Network Network::LoadNetwork(std::string name, std::string) {
-  static std::map<std::string, Network> net
+  static const std::map<std::string, Network> net
       = {{"testnet", Network{"https://k8s.testnet.lcd.injective.network",
                              "wss://k8s.testnet.tm.injective.network/websocket",
                              "k8s.testnet.chain.grpc.injective.network:443",
@@ -41,5 +41,5 @@ Network Network::LoadNetwork(std::string name, std::string) {
           Network{"https://lcd.injective.network", "ws://sentry3.injective.network:26657/websocket",
                   "sentry3.injective.network:9900", "sentry3.injective.network:9910", "injective-1",
                   "inj", "mainnet"}}};
-  return net[name];
+  return net.at(name);
 }
