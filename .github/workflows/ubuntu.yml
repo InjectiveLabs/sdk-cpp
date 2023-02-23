@@ -21,6 +21,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: eWaterCycle/setup-grpc@v5
+        with:
+          grpc-version: 1.50.2
 
       - uses: actions/cache@v2
         with:
