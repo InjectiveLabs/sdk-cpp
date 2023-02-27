@@ -74,6 +74,7 @@ endif()
 
 # Proto file
 get_filename_component(hw_proto "./protos/helloworld.proto" ABSOLUTE)
+get_filename_component(hw_proto "./protos/injective_accounts_rpc.proto" ABSOLUTE)
 get_filename_component(hw_proto_path "${hw_proto}" PATH)
 
 # Generated sources

@@ -1,0 +1,66 @@
+syntax = "proto3";
+package injective.wasmx.v1beta1;
+
+import "gogoproto/gogo.proto";
+import "google/protobuf/any.proto";
+import "cosmos_proto/cosmos.proto";
+
+option go_package = "github.com/InjectiveLabs/injective-core/injective-chain/modules/wasmx/types";
+
+// Msg defines the wasmx Msg service.
+service Msg {
+  rpc UpdateRegistryContractParams(MsgUpdateContract) returns (MsgUpdateContractResponse);
+  rpc ActivateRegistryContract(MsgActivateContract) returns (MsgActivateContractResponse);
+  rpc DeactivateRegistryContract(MsgDeactivateContract) returns (MsgDeactivateContractResponse);
+  rpc ExecuteContractCompat(MsgExecuteContractCompat) returns (MsgExecuteContractCompatResponse);
+}
+
+// MsgExecuteContractCompat submits the given message data to a smart contract, compatible with EIP712
+message MsgExecuteContractCompat {
+  // Sender is the that actor that signed the messages
+  string sender = 1;
+  // Contract is the address of the smart contract
+  string contract = 2;
+  // Msg json encoded message to be passed to the contract
+  string msg = 3;
+  // Funds coins that are transferred to the contract on execution
+  string funds = 4;
+}
+
+
+// MsgExecuteContractCompatResponse returns execution result data.
+message MsgExecuteContractCompatResponse {
+  // Data contains bytes to returned from the contract
+  bytes data = 1;
+}
+
+
+message MsgUpdateContract {
+  string sender = 1;
+  // Unique Identifier for contract instance to be registered.
+  string contract_address = 2;
+  // Maximum gas to be used for the smart contract execution.
+  uint64 gas_limit = 3;
+  // gas price to be used for the smart contract execution.
+  uint64 gas_price = 4;
+  // optional - admin account that will be allowed to perform any changes
+  string admin_address  = 5 [(gogoproto.nullable) = true];
+}
+
+message MsgUpdateContractResponse {}
+
+message MsgActivateContract {
+  string sender = 1;
+  // Unique Identifier for contract instance to be activated.
+  string contract_address = 2;
+}
+
+message MsgActivateContractResponse {}
+
+message MsgDeactivateContract {
+  string sender = 1;
+  // Unique Identifier for contract instance to be deactivated.
+  string contract_address = 2;
+}
+
+message MsgDeactivateContractResponse {}
