@@ -16,7 +16,7 @@ CPMAddPackage(
   OPTIONS "CXXOPTS_BUILD_EXAMPLES NO" "CXXOPTS_BUILD_TESTS NO" "CXXOPTS_ENABLE_INSTALL YES"
 )
 
-CPMAddPackage(NAME InjectiveSDK SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
+CPMAddPackage(NAME InjectiveSDK SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/../../../)
 
 # ---- Create standalone executable ----
 
